@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahek Bhathawala · portfolio</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts: Inter + fallback -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    /* === style.css === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f4f7fc;
+      background-image: radial-gradient(circle at 10% 20%, rgba(79, 70, 229, 0.03) 0%, transparent 30%),
+                        radial-gradient(circle at 90% 70%, rgba(6, 182, 212, 0.03) 0%, transparent 35%);
+      color: #1e293b;
+      line-height: 1.5;
+      padding: 2rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(2px);
+      border-radius: 2.5rem;
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1), 0 4px 18px rgba(0, 0, 0, 0.02);
+      padding: 2.5rem 2.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    /* === header / top === */
+    .header {
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .header h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(145deg, #1e293b, #2d3c5e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.25rem;
+      line-height: 1.2;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #4b5563;
+      margin-bottom: 1.2rem;
+      border-left: 5px solid #4f46e5;
+      padding-left: 1rem;
+      background: linear-gradient(90deg, #f0f3ff, transparent);
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem 2.2rem;
+      align-items: center;
+      background: #ffffffcc;
+      padding: 0.9rem 1.5rem;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
+      border: 1px solid #ffffff;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
+    }
+
+    .contact-info span, .contact-info a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.98rem;
+      color: #1e293b;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-info i {
+      color: #4f46e5;
+      width: 1.2rem;
+      font-size: 1.1rem;
+    }
+
+    .contact-info a:hover {
+      color: #4f46e5;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* === section headings === */
+    section h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.2rem;
+      display: inline-block;
+      background: linear-gradient(to right, #4f46e5, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      border-bottom: 3px solid #e0e7ff;
+      padding-bottom: 0.3rem;
+    }
+
+    /* === two column layout === */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2.5rem;
+      margin: 2rem 0 1rem;
+    }
+
+    @media (max-width: 850px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+      }
+      .header h1 { font-size: 2.6rem; }
+      .container { padding: 1.8rem; }
+    }
+
+    /* left & right cards */
+    .left > section, .right > section {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(8px);
+      border-radius: 1.8rem;
+      padding: 1.5rem 1.8rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 22px -10px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+      transition: all 0.25s ease;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .left > section:hover, .right > section:hover {
+      box-shadow: 0 18px 30px -12px rgba(79, 70, 229, 0.15), 0 0 0 1px #ffffff inset;
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    /* education */
+    .edu-item {
+      margin-bottom: 1.3rem;
+    }
+    .edu-item h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .edu-item h3::before {
+      content: "▹";
+      color: #4f46e5;
+      font-weight: 700;
+    }
+    .institute {
+      font-weight: 500;
+      color: #334155;
+    }
+    .details {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin-top: 0.1rem;
+    }
+
+    /* skill tags */
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 0.5rem;
+    }
+    .skill-tags span {
+      background: linear-gradient(125deg, #e0e7ff, #ede9fe);
+      color: #1e1b4b;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      transition: 0.15s;
+    }
+    .skill-tags span:hover {
+      background: #c7d2fe;
+      transform: scale(1.02);
+      border-color: #a5b4fc;
+    }
+
+    /* certifications list */
+    .certifications ul {
+      list-style: none;
+    }
+    .certifications li {
+      margin-bottom: 0.9rem;
+      padding-left: 1.6rem;
+      position: relative;
+    }
+    .certifications li::before {
+      content: "📌";
+      position: absolute;
+      left: 0;
+      color: #4f46e5;
+      font-size: 0.9rem;
+      top: 0.1rem;
+    }
+    .certifications strong {
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    /* project cards */
+    .project-card {
+      background: #ffffffb3;
+      border-radius: 1.5rem;
+      padding: 1.3rem 1.4rem;
+      margin-bottom: 1.4rem;
+      border: 1px solid #ffffff;
+      transition: all 0.2s;
+      box-shadow: 0 4px 10px -8px rgba(0,0,0,0.1);
+    }
+    .project-card:hover {
+      background: #ffffff;
+      border-color: #cbd5e1;
+      box-shadow: 0 14px 22px -16px #4f46e5;
+      transform: translateY(-2px);
+    }
+    .project-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .project-card h3 i {
+      color: #4f46e5;
+      font-size: 1rem;
+    }
+    .project-card p {
+      color: #334155;
+      font-size: 0.95rem;
+    }
+
+    /* experience list */
+    .experience ul {
+      list-style: none;
+    }
+    .experience li {
+      margin-bottom: 0.8rem;
+      padding-left: 1.8rem;
+      position: relative;
+      font-size: 0.98rem;
+    }
+    .experience li::before {
+      content: "⚡";
+      position: absolute;
+      left: 0;
+      color: #06b6d4;
+      font-weight: bold;
+    }
+
+    /* footer */
+    footer {
+      margin-top: 2.2rem;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.9rem;
+      border-top: 2px dashed #e2e8f0;
+      padding-top: 1.5rem;
+    }
+
+    /* small extra unique touch */
+    .header::after {
+      content: "";
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      width: 140px;
+      height: 140px;
+      background: radial-gradient(circle, rgba(79,70,229,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* make links in contact nicer */
+    .contact-info a {
+      color: #1e293b;
+    }
+
+    /* for smaller screens contact info wrap */
+    @media (max-width: 550px) {
+      .contact-info {
+        border-radius: 30px;
+        gap: 0.9rem;
+        justify-content: center;
+      }
+      .header h1 { font-size: 2.2rem; }
+    }
+
+    /* highlight accent */
+    i.fa-github, i.fa-linkedin {
+      font-size: 1.2rem;
+    }
+
+    /* summary specific */
+    .summary {
+      background: #ffffffd6;
+      border-radius: 2rem;
+      padding: 1.6rem 2rem;
+      border: 1px solid #ffffff;
+      box-shadow: 0 12px 26px -16px #1e293b1a;
+      margin-bottom: 1.2rem;
+      backdrop-filter: blur(4px);
+    }
+    .summary p {
+      font-size: 1.05rem;
+      color: #1e293b;
+      max-width: 85%;
+    }
+    @media (max-width: 600px) {
+      .summary p { max-width: 100%; }
+    }
+
+    /* subtle decoration */
+    .container {
+      position: relative;
+      overflow: hidden;
+    }
+    .container::before {
+      content: "";
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(6,182,212,0.03) 0%, transparent 60%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .container > * {
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- HEADER with name + contact -->
+  <header class="header">
+    <h1>Mahek Bhathawala</h1>
+    <div class="tagline">Artificial Intelligence / Machine Learning / Cyber Security </div>
+    <div class="contact">
+    <span>
+        <i class="fas fa-map-marker-alt"></i> 
+        74, Pushpvihar Society, Kabilpore, Navsari
+    </span>
+    </div>
+      <span><i class="fas fa-envelope"></i> <a href="mailto:bhathawalamahak@gmail.com">bhathawalamahak@gmail.com</a></span>
+      <span><i class="fab fa-github"></i> <a href="https://github.com/Mahekb15" target="_blank">GitHub</a></span>
+      <span><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/mahek-bhathawala-2407442a1?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">LinkedIn</a></span>
+    </div>
+  </header>
+
+  <!-- SUMMARY section (full width) -->
+  <section class="summary">
+    <h2>Summary</h2>
+    <p>Eager and passionate fresher with hands‑on experience in Python, HTML, and CSS. Skilled in using Pandas, NumPy, and Scikit‑learn for basic machine learning models. Possess good foundational knowledge of AI and Machine Learning. Currently learning Cyber Security concepts and secure system practices.</p>
+  </section>
+
+  <!-- 2 COLUMN layout (left: education, skills, certs / right: projects, experience) -->
+  <div class="grid-2">
+    <!-- LEFT COLUMN -->
+    <div class="left">
+      <!-- EDUCATION -->
+      <section class="education">
+        <h2>Education</h2>
+        <div class="edu-item">
+          <h3>Bachelor of Engineering (CSE)</h3>
+          <p class="institute">R.N.G. Patel Institute of Technology, Isroli, Bardoli</p>
+          <p class="details">Semester 6 Result CGPA: 8.26</p>
+        </div>
+        <div class="edu-item">
+          <h3>Higher Secondary Certificate (HSC)</h3>
+          <p class="institute">A.B School, Navsari · Science Stream</p>
+        </div>
+        <div class="edu-item">
+          <h3>Secondary School Certificate (SSC)</h3>
+          <p class="institute">A.B School, Navsari</p>
+          <p class="details">2020</p>
+        </div>
+      </section>
+
+      <!-- SKILLS (as chips) -->
+      <section class="skills">
+        <h2>Skills</h2>
+        <div class="skill-tags">
+          <span>Python</span><span>C</span><span>HTML</span><span>CSS</span><span>MySQL</span>
+          <span>VS Code</span><span>Git</span><span>GitHub</span><span>NumPy</span><span>Pandas</span>
+          <span>Matplotlib</span><span>Scikit-learn</span><span>Streamlit</span><span>Problem Solving</span>
+          <span>Communication</span><span>Team Collaboration</span><span>Time Management</span>
+        </div>
+      </section>
+
+      <!-- CERTIFICATIONS -->
+      <section class="certifications">
+        <h2>Certifications</h2>
+        <ul>
+          <li><strong>Foundation Course (2024):</strong> Python Programming, Data Analysis with Python, Artificial Intelligence</li>
+          <li><strong>Foundation Course (2025):</strong> Green Skills and Artificial Intelligence</li>
+          <li><strong>Workshop Completion (2025):</strong> Artificial Intelligence</li>
+        </ul>
+      </section>
+    </div> <!-- end left -->
+
+    <!-- RIGHT COLUMN -->
+    <div class="right">
+      <!-- PROJECTS (three cards) -->
+      <section class="projects">
+        <h2>Projects</h2>
+        <div class="project-card">
+          <h3><i class="fas fa-robot"></i> Student Placement Prediction App</h3>
+          <p>Machine learning web app predicting placement based on CGPA, backlogs, internships, projects, communication & certifications. Random Forest Classifier with near‑perfect accuracy. Built with Streamlit.</p>
+        </div>
+        <div class="project-card">
+          <h3><i class="fas fa-shield-alt"></i> Cybercrime in Job Recruitment</h3>
+          <p>Case study on fake ASI website scam using phishing & spoofing. Highlights importance of verifying official sources and awareness against job frauds.</p>
+        </div>
+        <div class="project-card">
+          <h3><i class="fas fa-laptop-code"></i> Cybersecurity Training (TryHackMe)</h3>
+          <p>Hands‑on labs: CyberLens, Nmap, BankGPT, Brute It, Anthem, Operation Slither, Digital Footprint. Performed vulnerability assessment & reconnaissance in virtual environments.</p>
+        </div>
+      </section>
+
+  <!-- simple footer -->
+  <footer>
+    <p>© 2025 Mahek Bhathawala — crafted with <i class="fas fa-code" style="color:#4f46e5;"></i> from the resume</p>
+  </footer>
+</div> <!-- end container -->
+</body>
+</html>
